@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Guestbook Summary</title>
+</head>
+<body>
+  <h1>Guestbook Summary</h1>
+
+  <% if (guestbookEntries.length === 0) { %>
+    <p>No entries to display.</p>
+  <% } else { %>
+    <% guestbookEntries.forEach(function(entry) { %>
+      <p>
+        Name: <%= entry.firstName %> <%= entry.lastName %><br>
+        Email: <%= entry.email %><br>
+        Job Title: <%= entry.jobTitle || '-' %><br>
+        Company: <%= entry.company || '-' %><br>
+        LinkedIn: <%= entry.linkedin || '-' %><br>
+        How We Met: <%= entry.meet || entry.other || '-' %><br>
+        Message: <%= entry.message || '-' %><br>
+        Mailing List: <%= entry.mailingList ? 'Yes' : 'No' %><br>
+        Email Format: <%= entry.emailFormat || '-' %><br>
+        Submitted On: <%= entry.timestamp %>
+      </p>
+      <hr>
+    <% }); %>
+  <% } %>
+
+  <br>
+  <a href="/">Back to Home</a>
+</body>
+</html>
